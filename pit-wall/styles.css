@@ -1,5 +1,6 @@
 /* ==========================================================================
    PIT WALL: Folha de Estilos
+   Desenvolvido por: João Victor
    ========================================================================== */
 
 /* 1. VARIÁVEIS E RESET
@@ -30,7 +31,7 @@
     box-sizing: border-box;
 }
 
-/* 2. BASE: a página inteira */
+/* 2. BODY E PARTES INICIAIS*/
 body {
     font-family: var(--font);
     background: var(--black);
@@ -48,8 +49,7 @@ ul {
     list-style: none;
 }
 
-/* 3. BOTÕES
-   .btn é o formato; .btn-primary e .btn-outline são as cores. */
+/* 3. BOTÕES*/
 .btn {
     display: inline-flex;
     align-items: center;
@@ -89,7 +89,7 @@ ul {
     color: var(--black);
 }
 
-/* 4. TOPO: flex em 3 partes (logo | menu | botão) */
+/* 4. HEADER*/
 .cabecalho {
     display: flex;
     justify-content: space-between;
@@ -126,9 +126,7 @@ ul {
     color: var(--white);
 }
 
-/* 5. HERO: texto à esquerda, números à direita.
-   O degradê tem 2 camadas: a faixa vermelha (corte seco em 62%)
-   e a foto. A de cima cobre a de baixo. */
+/* 5. HERO*/
 .hero {
     display: flex;
     justify-content: space-between;
@@ -140,7 +138,7 @@ ul {
             var(--black) 0%, var(--black) 62%,
             var(--red) 62%, var(--red) 64%,
             rgba(11, 11, 15, .35) 64%),
-        url("img/piloto.jpg") right center / cover no-repeat;
+        url("img/piloto.jpg") right 55% / 46% auto no-repeat;
 }
 
 .hero-texto {
@@ -243,8 +241,7 @@ main section {
     color: var(--red);
 }
 
-/* 7. CARDS DOS PILOTOS: grid auto-fit e cor por equipe.
-   Cada classe de equipe só troca a variável --team. */
+/* 7. CARDS DOS PILOTOS*/
 .drivers {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -292,7 +289,7 @@ main section {
     color: var(--muted);
 }
 
-/* 8. FORMULÁRIOS: base dos campos (filtros e ingressos) */
+/* 8. FORMULÁRIOS*/
 label {
     display: block;
     margin-bottom: .4rem;
@@ -350,7 +347,7 @@ small {
     color: var(--muted);
 }
 
-/* 9. CLASSIFICAÇÃO: filtros em flex, cada item com flex: 1 */
+/* 9. CLASSIFICAÇÃO*/
 .filters {
     display: flex;
     align-items: flex-end;
@@ -426,7 +423,7 @@ tbody tr:hover {
     color: var(--white);
 }
 
-/* A barrinha com a cor da equipe (reaproveita o --team dos cards). */
+/* A barrinha com a cor da equipe */
 .bar {
     display: inline-block;
     width: 4px;
@@ -446,7 +443,7 @@ td strong {
     font-weight: 900;
 }
 
-/* 10. INGRESSOS: grade de 2 colunas (texto | formulário) */
+/* 10. INGRESSOS*/
 .tickets {
     display: grid;
     grid-template-columns: 1fr 1.6fr;
@@ -521,14 +518,26 @@ td strong {
     color: var(--red);
 }
 
-/* 12. CELULAR [@media sempre no FIM do arquivo] */
+/* 12. TELAS MÉDIAS */
+@media (max-width: 1100px) {
+    .hero {
+        background:
+            linear-gradient(110deg,
+                var(--black) 0%, var(--black) 62%,
+                var(--red) 62%, var(--red) 64%,
+                rgba(11, 11, 15, .35) 64%),
+            url("img/piloto.jpg") right 55% / auto 100% no-repeat;
+    }
+}
+
+/* 13. CELULAR */
 @media (max-width: 768px) {
     .cabecalho { padding: 14px 16px; }
     .logo { font-size: 1.3rem; }
     .menu { display: none; }
     .btn { padding: .6rem 1rem; font-size: .72rem; }
 
-    /* Hero vira coluna e perde a faixa inclinada; a foto fica escurecida. */
+    /* Hero vira coluna e perde a faixa inclinada;  */
     .hero {
         flex-direction: column;
         align-items: flex-start;
@@ -537,7 +546,7 @@ td strong {
         padding: 32px 20px;
         background:
             linear-gradient(rgba(11, 11, 15, .75), rgba(11, 11, 15, .75)),
-            url("img/piloto.jpg") right center / cover no-repeat;
+            url("img/piloto.jpg") center 55% / cover no-repeat;
     }
     .titulo { font-size: 3.2rem; }
     .info { padding: 0 1rem; }
